@@ -1,0 +1,463 @@
+/* RESET GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    color: #4A4A4A;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .logo-main {
+    font-family: 'Fredoka', sans-serif;
+    color: #483D8B; /* Azul/Morado oscuro característico */
+}
+
+/* PALETA DE COLORES PRINCIPALES */
+:root {
+    --pink: #E95D8F;
+    --dark-purple: #483D8B;
+    --light-purple: #9370DB;
+    --teal: #3BB4B4;
+    --light-bg: #F4F9F9;
+}
+
+/* MENÚ DE NAVEGACIÓN */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: #fff;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+}
+
+.logo-main {
+    font-size: 32px;
+    font-weight: 700;
+    color: #5C4DB1;
+}
+
+.logo-sub {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #E95D8F;
+    font-weight: bold;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    margin: 0 15px;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #E95D8F;
+    border-bottom: 2px solid #E95D8F;
+    padding-bottom: 4px;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.cart-count {
+    background: #E95D8F;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 10px;
+    position: relative;
+    top: -10px;
+    left: -5px;
+}
+
+/* SECCIÓN HERO */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 10%;
+    background: radial-gradient(circle at 80% 20%, #E8F5E9 0%, #FFF 60%);
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.highlight-text {
+    font-size: 18px;
+    color: #3BB4B4;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+/* BOTONES */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s;
+    text-align: center;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn-pink {
+    background-color: #E95D8F;
+    color: #fff;
+}
+
+.btn-purple {
+    background-color: #6C5CE7;
+    color: #fff;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* SECCIÓN VALORES */
+.values-section {
+    text-align: center;
+    padding: 60px 5%;
+    background-color: #fff;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: #3BB4B4;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.values-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.value-item {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.value-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+/* Colores suaves de fondo para los iconos */
+.circle-purple { background-color: #ECE7F5; }
+.circle-blue { background-color: #E1F5FE; }
+.circle-yellow { background-color: #FFFDE7; }
+.circle-pink { background-color: #FCE4EC; }
+.circle-orange { background-color: #FFF3E0; }
+
+.value-item p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+}
+
+/* SECCIÓN MEET PIPPINO */
+.meet-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 10%;
+    background-color: #FBFDFB;
+    gap: 50px;
+}
+
+.meet-content {
+    max-width: 500px;
+}
+
+.meet-content h2 {
+    margin-bottom: 15px;
+}
+
+.meet-content p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* SECCIÓN COLECCIÓN */
+.collection-section {
+    text-align: center;
+    padding: 60px 5%;
+}
+
+.collection-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.collection-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    width: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.collection-card:hover {
+    transform: translateY(-5px);
+}
+
+.collection-card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.card-tag {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+    border-radius: 15px;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* Colores de las etiquetas de las tarjetas */
+.card-purple .card-tag { background-color: #8A72CE; }
+.card-teal .card-tag { background-color: #3BB4B4; }
+.card-green .card-tag { background-color: #8BC34A; }
+.card-pink .card-tag { background-color: #E95D8F; }
+.card-orange .card-tag { background-color: #FFA726; }
+
+/* SECCIÓN CLUB */
+.club-section {
+    padding: 40px 10%;
+}
+
+.club-box {
+    background-color: #F3EFFF;
+    border-radius: 30px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.club-middle {
+    flex: 1;
+}
+
+.club-middle h2 {
+    color: #5C4DB1;
+    margin-bottom: 10px;
+}
+
+.club-middle p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* SECCIÓN CREATOR */
+.creator-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 10%;
+    gap: 50px;
+}
+
+.creator-image img {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #F3EFFF;
+}
+
+.creator-content {
+    max-width: 500px;
+}
+
+/* PRE-FOOTER */
+.pre-footer {
+    text-align: center;
+    padding: 80px 5% 140px 5%;
+    background: linear-gradient(to bottom, #FFF, #E0F7FA);
+    position: relative;
+}
+
+.pre-footer h2 {
+    margin-bottom: 10px;
+}
+
+.pre-footer p {
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.boat-illustration {
+    position: absolute;
+    bottom: 10px;
+    right: 15%;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #42368E;
+    color: white;
+    padding: 60px 10% 40px 10%;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.logo-white .logo-main { color: #FFF; }
+.logo-white .logo-sub { color: #FFD166; }
+
+.copyright {
+    font-size: 12px;
+    margin-top: 20px;
+    color: #B3AEE2;
+}
+
+.footer-links h4, .footer-newsletter h4 {
+    font-size: 14px;
+    color: #FFD166;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.footer-links a {
+    display: block;
+    color: #E2DFFF;
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-newsletter {
+    max-width: 300px;
+}
+
+.footer-newsletter p {
+    font-size: 13px;
+    margin-bottom: 15px;
+    color: #E2DFFF;
+}
+
+.newsletter-form {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.newsletter-form input {
+    padding: 10px;
+    border-radius: 20px 0 0 20px;
+    border: none;
+    outline: none;
+    width: 80%;
+}
+
+.newsletter-form button {
+    background-color: #E95D8F;
+    border: none;
+    color: white;
+    padding: 0 15px;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+}
+
+.social-icons a {
+    font-size: 18px;
+    margin-right: 15px;
+    text-decoration: none;
+    color: white;
+}
+
+/* RESPONSIVO (MOBILE) */
+@media (max-width: 768px) {
+    .navbar, .hero, .meet-section, .club-box, .creator-section, .footer-grid {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content, .meet-content, .creator-content {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 20px 0;
+    }
+    .boat-illustration {
+        position: static;
+        margin-top: 30px;
+    }
+}
