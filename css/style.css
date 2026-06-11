@@ -697,7 +697,7 @@ FINAL CTA
 .waves-bottom{
     position: absolute;
     left: 0;
-    bottom: -10px;
+    bottom: 0px;
 
     width: 100%;
     height: auto;
