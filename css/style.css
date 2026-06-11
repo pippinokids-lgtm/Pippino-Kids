@@ -196,114 +196,142 @@ CLOUDS
 HEADER
 ========================= */
 
+/* =========================
+HEADER (Optimizado)
+========================= */
+
 header{
-
-  background-image: url("images/bg-header.png");
-
-    justify-content:space-between;
-
-    align-items:center;
-
-position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-
-  display: flex;
-
-  padding: 20px 40px; /* ajusta a tu diseño */
+    background-image: linear-gradient(to bottom, rgba(138, 43, 226, 1) 0%, rgba(138, 43, 226, 0) 100%);
+    text-decoration-color: white;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+    padding: 20px 4%; /* Usamos % para que sea más elástico */
 }
 
-
 .logo img{
-
-    width:180px;
-
+    width: 150px; /* Un poco más pequeño para prevenir colisiones */
+    max-width: 100%;
+    display: block;
 }
 
 nav{
-
-    display:flex;
-
-    gap:30px;
-
+    display: flex;
+    gap: 30px;
 }
 
 nav a{
-
-    text-decoration:none;
-
-    color:var(--dark);
-
-    font-weight:700;
-
-    transition:.3s;
-
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 700;
+    transition: .3s;
 }
 
 nav a:hover{
-
-    color:var(--magenta);
-
+    color: var(--magenta);
 }
+
+/* Botón Hamburguesa oculto por defecto en Escritorio */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    padding: 0;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--dark);
+    border-radius: 10px;
+    transition: all 0.3s linear;
+}
+
+/* Animación del botón cuando el menú está abierto */
+.menu-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -8px);
+}
+
+/* =========================
+CORRECCIÓN DE ZOOM / DESBORDE
+========================= */
+img {
+    max-width: 100%; /* Evita que cualquier imagen rompa el ancho del dispositivo */
+    height: auto;
+}
+
+/* Ajuste de nubes para que no estiren la pantalla a la derecha */
+@keyframes cloudMove1{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(100vw); }
+}
+@keyframes cloudMove2{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(100vw); }
+}
+@keyframes cloudMove3{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(100vw); }
+}
+
 
 /* =========================
 HERO
 ========================= */
-
-.hero{
-
-    min-height:90vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    padding:60px 8%;
-
-    position:relative;
-
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 8%;
+    position: relative;
+    
+    /* Forzamos el fondo con !important y probamos la ruta directa */
+    background-image: url("../images/bg-header.png") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
 }
 
 .hero-content{
-
-    max-width:600px;
+    max-width: 600px;
     margin-top: 80px;
-    z-index:5;
-
+    z-index: 5;
 }
 
 .hero h1{
-
-    font-size:5rem;
-
-    line-height:1;
-
-    margin-bottom:20px;
-
+    font-size: 5rem;
+    line-height: 1;
+    margin-bottom: 20px;
 }
 
 .hero h3{
-
-    color:#2f9ca0;
-
-    font-size:1.5rem;
-
-    margin-bottom:20px;
-
+    color: #2f9ca0;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
 }
 
 .hero p{
-
-    font-size:1.1rem;
-
-    line-height:1.6;
-
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
-
 /* =========================
 BUTTON
 ========================= */
@@ -653,11 +681,86 @@ FINAL CTA
 ========================= */
 
 .final-cta{
+    position: relative;
+    overflow: visible;
 
-    text-align:center;
+    padding: 90px 20px 80px;
 
-    background:#dff7ff;
+    background: linear-gradient(
+        180deg,
+        #dff8fb 0%,
+        #c8f2f5 100%
+    );
 
+    text-align: center;   /* ← importante */
+}
+.waves-bottom{
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+
+    width: 100%;
+    height: auto;
+
+    z-index: 1;
+    pointer-events: none;
+}
+
+.final-cta__content{
+    position: relative;
+    z-index: 2;
+}
+
+.final-cta__character{
+    position: absolute;
+    right: 0  8%;
+    top: -115px;
+    width: 240px;
+
+    z-index: 3;
+}.final-cta h2{
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: #4a3287;
+    margin-bottom: 10px;
+}
+
+.final-cta p{
+    color: #2a7b87;
+    margin-bottom: 30px;
+}
+.btn-primary{
+    display: inline-block;
+
+    padding: 16px 36px;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        #ff6bb2,
+        #ff4f8b
+    );
+
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+@media (max-width:768px){
+
+    .final-cta{
+        padding-top: 150px;
+    }
+
+    .final-cta__character{
+        left: 50%;
+        right: auto;
+
+        top: -90px;
+
+        transform: translateX(-50%);
+
+        width: 180px;
+    }
 }
 
 /* =========================
@@ -729,272 +832,68 @@ SCROLL ANIMATION
 }
 
 /* =========================
-RESPONSIVE
+RESPONSIVE (Modificado para Menú Desplegable)
 ========================= */
 
 @media(max-width:1000px){
 
+    /* Activar botón hamburguesa */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Transformar la navegación en menú desplegable móvil */
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Escondido a la derecha */
+        width: 70%;  /* Ocupa el 70% del ancho del celular */
+        height: 100vh;
+        background-color: rgba(255, 253, 251, 0.98); /* Fondo sólido de tu color background */
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+        transition: 0.4s ease-in-out;
+        z-index: 998;
+    }
+
+    /* Clase que activa el JavaScript para mostrar el menú */
+    nav.open {
+        right: 0;
+    }
+
+    /* Ajustes del contenido Hero en móvil */
     .hero,
     .meet-pippino,
     .creator{
-
         flex-direction:column;
-
         text-align:center;
-
+        padding: 120px 5% 60px 5%; /* Más padding arriba para que no lo tape el header fijo */
     }
 
     .hero h1{
-
-        font-size:3rem;
-
+        font-size: 2.8rem;
     }
 
-    .products{
-
-        grid-template-columns:
-        repeat(2,1fr);
-
+    .products, .value-grid{
+        grid-template-columns: repeat(2,1fr);
     }
 
-    .value-grid{
-
-        grid-template-columns:
-        repeat(2,1fr);
-
+    /* Forzar a que los elementos grandes no rompan el layout del móvil */
+    .hero-pippino, .meet-image img, .creator img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
     }
-
-    nav{
-
-        flex-wrap:wrap;
-
-        justify-content:center;
-
-    }
-
-    .hero-pippino{
-
-        width:320px;
-
-    }
-
 }
 
-.hero-background{
-
-    background-image:
-    url("../images/hero-background.webp");
-
-    background-size:cover;
-
-    background-position:center;
-
-}
-
-.leaf{
-
-    position:absolute;
-
-    z-index:1;
-
-    opacity:.75;
-
-}
-
-.leaf1{
-
-    width:80px;
-
-    top:220px;
-
-    left:5%;
-
-    animation:
-    leafFloat1 14s ease-in-out infinite;
-
-}
-
-.leaf2{
-
-    width:120px;
-
-    top:650px;
-
-    right:10%;
-
-    animation:
-    leafFloat2 18s ease-in-out infinite;
-
-}
-
-.leaf3{
-
-    width:90px;
-
-    top:1200px;
-
-    left:8%;
-
-    animation:
-    leafFloat3 16s ease-in-out infinite;
-
-}
-@keyframes leafFloat1{
-
-    0%{
-        transform:
-        rotate(0deg)
-        translateY(0px);
+@media(max-width: 480px) {
+    .products, .value-grid{
+        grid-template-columns: 1fr; /* 1 sola columna en celulares muy pequeños */
     }
-
-    50%{
-        transform:
-        rotate(8deg)
-        translateY(-20px);
+    .hero h1{
+        font-size: 2.2rem;
     }
-
-    100%{
-        transform:
-        rotate(0deg)
-        translateY(0px);
-    }
-
-}
-
-@keyframes leafFloat2{
-
-    0%{
-        transform:
-        rotate(0deg);
-    }
-
-    50%{
-        transform:
-        rotate(-12deg);
-    }
-
-    100%{
-        transform:
-        rotate(0deg);
-    }
-
-}
-
-@keyframes leafFloat3{
-
-    0%{
-        transform:
-        translateY(0px);
-    }
-
-    50%{
-        transform:
-        translateY(-25px);
-    }
-
-    100%{
-        transform:
-        translateY(0px);
-    }
-
-}
-@keyframes breathe{
-
-    0%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.03);
-    }
-
-    100%{
-        transform:scale(1);
-    }
-
-}
-.btn{
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-.btn::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:-100%;
-
-    width:100%;
-
-    height:100%;
-
-    background:
-
-    linear-gradient(
-
-    90deg,
-
-    transparent,
-
-    rgba(255,255,255,.4),
-
-    transparent
-
-    );
-
-}.btn::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:-100%;
-
-    width:100%;
-
-    height:100%;
-
-    background:
-
-    linear-gradient(
-
-    90deg,
-
-    transparent,
-
-    rgba(255,255,255,.4),
-
-    transparent
-
-    );
-
-}
-.btn:hover::after{
-
-    animation:
-    shine .8s;
-
-}
-@keyframes shine{
-
-    from{
-
-        left:-100%;
-
-    }
-
-    to{
-
-        left:120%;
-
-    }
-
 }
